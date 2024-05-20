@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mover Barata</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #barata {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('barata.gif');
+      /* Substitua com a URL da imagem da barata */
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="barata"></div>
+
+  <script>
+    const barata = document.getElementById('barata');
+    let posX = 100;
+    let posY = 100;
+    const step = 10;
+
+    function updatePosition() {
+      barata.style.left = posX + 'px';
+      barata.style.top = posY + 'px';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowUp':
+          posY -= step;
+          break;
+        case 'ArrowDown':
+          posY += step;
+          break;
+        case 'ArrowLeft':
+          posX -= step;
+          break;
+        case 'ArrowRight':
+          posX += step;
+          break;
+      }
+      updatePosition();
+    });
+
+    // Inicializa a posição da barata
+    updatePosition();
+  </script>
+</body>
+
+</html>
